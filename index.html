@@ -11,6 +11,7 @@
     <link rel="icon"
         href="https://scontent.fcok1-1.fna.fbcdn.net/v/t1.0-0/p206x206/56232354_1071637096372201_7126730785775681536_n.jpg?_nc_cat=105&_nc_sid=da31f3&_nc_ohc=MkHBo_XkJwMAX_8bWez&_nc_ht=scontent.fcok1-1.fna&_nc_tp=6&oh=1ac370f034099fdb0b5b1c217c181f70&oe=5ECF87F3"
         type="image/icon type">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -141,7 +142,7 @@
     <div class="row ">
         <!--Grid column-->
         <div class="col-md-12 mb-md-0 mb-5 ">
-            <form id="contact-form" name="contact-form"  >
+            <form id="contact-form" name="contact-form action=""  >
 
                 <!--Grid row-->
                 <div class="row">
@@ -179,7 +180,7 @@
             </form>
 
             <div class="text-center text-md-left pt-3">
-              <address><a href="mailto:nikhil.lal98@gmail.com" > <button class="btn btn-primary ">Send</button></a></address> 
+              <input type="submit" class="btn btn-primary " value="Send">
             </div>
             <div class="status"></div>
         </div>
@@ -224,6 +225,25 @@
 </div>
 </footer>
 </div>
+    <script>
+    $("#contact-form").submit((e)=>{
+        e.preventDefault()
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbzS_iulP8zTXNW3EUHZMp_518XrUqGf0iotK7FjrN6cgkqSmQIz/exec",
+            data:$("#contact-form").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+    })
+</script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
